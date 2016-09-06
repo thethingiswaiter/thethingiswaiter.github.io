@@ -14,5 +14,5 @@ header-img: "img/green.jpg"
 
 
 <center>
-<a href="http://github.com/thethingiswaiter">github.thethingiswaiter</a>
+<a href="http://github.com/thethingiswaiter" target="_blank">github.thethingiswaiter</a>
 </center>
