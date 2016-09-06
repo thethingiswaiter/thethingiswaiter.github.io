@@ -1,27 +1,26 @@
 # Site settings
-title: 读立写生
+title: thethingiswaiter
 header-img: "img/Xacebook.jpg"
 tagline: "cn"  
-description: "陈素封|读而立·写而生"  
+description: "姚衍|惺相近，惜相远"  
 baseurl: ""
-url: "http://cnfeat"  
+url: "http://thethingiswaiter.com"  
 
 # About/contact
 owner: 
-  name: " CNFeat"
-  email: CnFeat@gmail.com
-  bio: "写就是写的报酬"
+  name: " thethingiswaiter"
+  email: 13125996730@163.com
+  bio: "必须喜欢学习"
 
 # Data
 gavatar: http://openmindclub.qiniudn.com/omt/GavatarCNFeat.png
 favicon: img/favicon.png
 
-douban_username:  cnfeat
-twitter_username: feat
-github_username: cnfeat
+douban_username:  姚衍
+github_username: thethingiswaiter
 facebook_username: 
-weibo_username: cnfeat 
-zhihu_username: feat
+weibo_username:
+zhihu_username: 姚衍
 
 # Build settings  
 # use Github Flavored Markdown !important  
@@ -33,7 +32,7 @@ paginate: 15
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone: Asia/Shanghai
+timezone:
 
 # Defaults for posts
 defaults:
@@ -42,16 +41,16 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "CNFeat"
+      author: "姚衍"
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
 comments :
   provider : disqus
   duoshuo :
-    short_name : cnfeat
+    short_name : 姚衍
   disqus :
-      short_name : cnfeat
+      short_name : 姚衍
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-80884545-1
