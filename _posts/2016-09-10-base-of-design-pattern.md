@@ -300,6 +300,8 @@ Java接口和Java抽象类代表的就是抽象类型，就是需要提出的抽
 
 ---
 
+<a href="http://pan.baidu.com/s/1gfe9C4b " target="_blank">委托的C#实现</a>
+
 占个坑，以后会补泛型，记得提醒我哦！
 
 ---
