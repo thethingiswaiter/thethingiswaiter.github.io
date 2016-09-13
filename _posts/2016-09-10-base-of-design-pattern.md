@@ -4,7 +4,7 @@ layout: post
 title: 给你讲设计模式之预备式
 date: 2016-09-09
 categories: blog
-tags: [设计模式]
+tags: [设计模式,java]
 description: 简介面向对象的基础，就是讲语言基础同步，不能出现对某些词汇理解不同的现象。
 
 ---
