@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何使用Github建立一个个人博客
+title: 魏晋聪是大傻逼
 date: 2016-09-07
 categories: blog
 tags: [博客,github]
