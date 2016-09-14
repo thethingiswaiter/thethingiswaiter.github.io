@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java的第二次课程
+title: Java课程
 date: 2016-09-07
 categories: blog
 tags: [java]
@@ -47,3 +47,62 @@ description: 一句话描述。
 - import：在一个包中调用另一个包的类
 
 ---
+
+## 第四次课
+
+- ^(异或运算符) 两侧的表达式的布尔值一样，结果为假；不一样，结果为真
+- &(短路与) 效果与&&相同，但可以减少运算 
+- |(短路或) 效果与||相同，但可以减少运算
+- block：一对相邻的{}之间的代码称之为代码块
+- switch的穿透利用如下：
+
+```
+public class Switch{
+	public static void mian(Sttring [] args){
+		double d = Math.random();
+		int e= 1+(int)(d*12);
+		System.out.printIn(e);
+		switch(e){
+		case 1:
+		case 3:
+		case 5:
+		case 7:  
+		case 8:  
+		case 10:  
+		case 12:
+			System.out.printIn(e+"月是31天"); 
+			break; 
+		case 2:  
+			System.out.printIn(e+"月是28天"); 
+			break; 
+		case 4:  
+		case 6:  
+		case 9:  
+		case 11:  
+			System.out.printIn(e+"月是30天"); 
+			break;
+		default： 
+			System.out.printIn(e+"不是合法的");
+		}	
+	}
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
