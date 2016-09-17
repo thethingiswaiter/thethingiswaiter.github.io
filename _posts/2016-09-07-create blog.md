@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 魏晋聪是大傻逼
+title: 写的被弄丢了
 date: 2016-09-07
 categories: blog
 tags: [博客,github]
