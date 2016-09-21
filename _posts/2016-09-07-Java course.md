@@ -22,7 +22,7 @@ description: 一句话描述。
 - 文件夹的.classpath和.project是项目文件，.class为字节码文件和.java为原文件
 
 - 代码提示的快捷键(Alt+/)，也可以设置<b>智能识别</b> ，具体步骤如下：
-	- 窗口->java->编辑器->内容辅助双击->将第一行的radiobutton改为覆盖首选项，延迟time值的200ms可改小一些->在下一行输入abc，然后在文件下导出首选项到桌面，然后用记事本打开，按Ctrl+F，并输入abc，找到后，在你的abc后面加上其他所有字母，包含大小写，用java的文件下导入将本文件导入，即可实现智能识别
+    - 窗口->java->编辑器->内容辅助双击->将第一行的radiobutton改为覆盖首选项，延迟time值的200ms可改小一些->在下一行输入abc，然后在文件下导出首选项到桌面，然后用记事本打开，按Ctrl+F，并输入abc，找到后，在你的abc后面加上其他所有字母，包含大小写，用java的文件下导入将本文件导入，即可实现智能识别
 
 - 包(package)近似于文件夹
 
@@ -56,7 +56,7 @@ description: 一句话描述。
 - block：一对相邻的{}之间的代码称之为代码块
 - switch的穿透利用如下：
 
-```
+```Csharp
 public class Switch{
 	public static void mian(Sttring [] args){
 		double d = Math.random();
@@ -87,6 +87,14 @@ public class Switch{
 	}
 }
 ```
+##第六次课
+- 这里缺了第五节课，是因为第五节课的内容太少，懒的往上加。
+- 面向对象
+  - state状态由属性表示
+  - behavior行为由方法表示
+  - class类是一类对象行为和状态
+  - opp(produce-oriented programming)：依照某种次序进行逐一编程
+  - oop(object-oriented programming)：将信息以上帝视角进行划分，将其处理。达到先静后动的方式搭建。首先搭建环境，然后再将其联系。
 
 
 
