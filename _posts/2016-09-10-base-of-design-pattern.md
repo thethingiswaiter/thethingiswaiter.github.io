@@ -197,7 +197,7 @@ Java的封装方式
 
 <h2>一、相关类</h2>
 
-```Java
+```
 class A ...{  
          public String show(D obj)...{  
                 return ("A and D");  
