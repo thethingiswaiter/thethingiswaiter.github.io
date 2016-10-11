@@ -87,7 +87,8 @@ public class Switch{
 	}
 }
 ```
-##第六次课
+## 第六次课
+
 - 这里缺了第五节课，是因为第五节课的内容太少，懒的往上加。
 - 面向对象
   - state状态由属性表示
@@ -95,7 +96,8 @@ public class Switch{
   - class类是一类对象行为和状态
   - opp(produce-oriented programming)：依照某种次序进行逐一编程
   - oop(object-oriented programming)：将信息以上帝视角进行划分，将其处理。达到先静后动的方式搭建。首先搭建环境，然后再将其联系。
-
+## 已经不晓得是第几节课了
+- 
 
 
 
