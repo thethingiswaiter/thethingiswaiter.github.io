@@ -56,7 +56,7 @@ description: 一句话描述。
 - block：一对相邻的{}之间的代码称之为代码块
 - switch的穿透利用如下：
 
-```Csharp
+```C
 public class Switch{
 	public static void mian(Sttring [] args){
 		double d = Math.random();
@@ -96,8 +96,13 @@ public class Switch{
   - class类是一类对象行为和状态
   - opp(produce-oriented programming)：依照某种次序进行逐一编程
   - oop(object-oriented programming)：将信息以上帝视角进行划分，将其处理。达到先静后动的方式搭建。首先搭建环境，然后再将其联系。
+  
 ## 已经不晓得是第几节课了
-- 
+- 里氏替换原则（多态）
+- 子类对象的私有方法不属于多态
+- 三要素【继承、】
+
+----
 
 
 
