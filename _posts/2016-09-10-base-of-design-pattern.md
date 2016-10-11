@@ -197,7 +197,7 @@ Java的封装方式
 
 <h2>一、相关类</h2>
 
-```
+```Java
 class A ...{  
          public String show(D obj)...{  
                 return ("A and D");  
@@ -220,7 +220,7 @@ class D extends B...{}
 
 <h2>二、问题：以下输出结果是什么？</h2>
 
-```
+```Java
 	A a1 = new A();  
         A a2 = new B();  
         B b = new B();  
