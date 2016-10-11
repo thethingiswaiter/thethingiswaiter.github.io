@@ -220,7 +220,7 @@ class D extends B...{}
 
 <h2>二、问题：以下输出结果是什么？</h2>
 
-```Java
+```
 	A a1 = new A();  
         A a2 = new B();  
         B b = new B();  
