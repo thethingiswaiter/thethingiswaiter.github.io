@@ -100,8 +100,26 @@ public class Switch{
 ## 已经不晓得是第几节课了
 - 里氏替换原则（多态）
 - 子类对象的私有方法不属于多态
-- 三要素【继承、】
 
+## 字符串的有关API
+- String为字符常量，而Stringbuffer为字符变量，stringtokenizer可用于分解字符串；
+- String.append(string string);在字符串的后面追加一个字符串；
+- StringBuffer.insert(int i,object object);在字符串的第i个位置插入一个对象；
+- StringTokenizer 是出于兼容性的原因而被保留的遗留类（虽然在新代码中并不鼓励使用它）。建议所有寻求此功能的人使用 String 的 split 方法或 java.util.regex 包
+
+## File I/O
+- File("string string");string =Url;
+- Boolean file.exists();
+- file.createNewFile();//根据定义时的文件后缀名自行创建文件；
+- file.getName();
+- file.getAbsolutePath();
+- file.lastModified();//上次修改时间；Date（file.lastModified()）；//更改日期格式；
+- Boolean file.canread();
+- Boolean file.canWrite();
+- Boolean file.canExcute();
+- file.isDirectory()
+- File[] fileList=file.listFiles();//包含路径下的所有文件和文件夹；
+- 
 ----
 
 
