@@ -120,8 +120,7 @@ public class Switch{
 - file.isDirectory()
 - File[] fileList=file.listFiles();//包含路径下的所有文件和文件夹；
 - scanner(new File(String string))string=Url;
-- out(new File(String string)) string=Url;
-- 
+- out(new File(String string)) string=Url; 
 ----
 
 
