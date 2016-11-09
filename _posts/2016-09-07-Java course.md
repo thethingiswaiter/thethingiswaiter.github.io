@@ -122,6 +122,10 @@ public class Switch{
 - scanner(new File(String string))string=Url;
 - out(new File(String string)) string=Url; 
 
+## File Stream
+- Outputstream
+  - FileOutputStream out =new FileOutputStream(new File("c:/file.txt"));  
+    - 输入进去的文件是转化为二进制进行存储的，
 ----
 
 
