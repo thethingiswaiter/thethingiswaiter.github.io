@@ -7,11 +7,12 @@ tags: [C#,Database]
 description: 就当一个数据库了
 ---
 
-````
+```
 
-````
+```
 ---
-````
+
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -587,4 +588,4 @@ namespace DA
         #endregion
     }
 }
-````
+```
