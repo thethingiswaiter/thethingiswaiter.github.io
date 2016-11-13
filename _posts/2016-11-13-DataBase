@@ -1,0 +1,586 @@
+---
+layout: post
+title: DBhelper
+date: 2016-09-07
+categories: blog
+tags: [C#,Database]
+description: 就当一个数据库了
+---
+
+····
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.OleDb;
+using System.Data;
+using System.Windows.Forms;
+using System.Configuration;
+
+
+namespace DA
+{
+   public  class database
+    {
+        public OleDbConnection dataConnection = new OleDbConnection();//新建数据库连接
+        public OleDbDataAdapter dataAdapter;//创建适配器对象
+        public DataSet dataSet = new DataSet();//实例化数据集
+        public OleDbCommand command = new OleDbCommand();//创建命令类
+        public static string connectionString = ConfigurationManager.ConnectionStrings["AccessConnection"].ConnectionString;//创建数据库连接字符串
+
+        public DataSet GetDataFromDB(string sqlStr)//从数据库中得到数据
+        {
+            try
+            {
+                dataConnection.ConnectionString = connectionString;//将连接字符串复制给链接
+                dataConnection.Open();//打开数据库的链接
+                dataAdapter = new OleDbDataAdapter(sqlStr, dataConnection);//实例化适配器
+                dataSet.Clear();//清空当前数据集
+                dataAdapter.Fill(dataSet);//将适配器中的内容填充到数据集中
+                dataConnection.Close();//关闭数据库的链接
+            }
+            catch (Exception exp)   
+            {
+                MessageBox.Show(exp.Message);//弹出消息框显示错误
+                dataConnection.Close();//若失败则直接关闭数据库的连接
+            }
+            //如果数据集中的行数不为0则返回数据集，否则返回空
+            if (dataSet.Tables[0].Rows.Count != 0)
+            {
+                return dataSet;
+            }
+
+            else
+            {
+                return null;
+            }
+        }          
+        //布尔类型
+        public bool UpdateDB(string sqlStr)
+        {
+            try
+            {
+                dataConnection.ConnectionString = connectionString;//将数据库连接字符串复制给链接
+                dataConnection.Open();//打开数据链接
+                command = dataConnection.CreateCommand();//实例化命令为创建
+                command.CommandText = sqlStr;//将命令语句复制给命令
+                command.ExecuteNonQuery();//执行命令
+                dataConnection.Close();//关闭数据库链接
+                return true;
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+                return false;
+            }
+
+
+        }         
+        //创建表
+        public void createTable(string tab_name,string column)
+        {
+            string createTableString = "create table "+tab_name+" (ID number(10,0) "+column+")";
+            try
+            {
+                bool flag = UpdateDB(createTableString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        public void createTable(string tab_name)
+        {
+            string createTableString = "create table " + tab_name + " (ID number(10,0) primary key,姓名 varchar(10),英语 number(2,0),数学 number(2,0),计算机 number(2,0))";
+            try
+            {
+                bool flag = UpdateDB(createTableString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //向表中指定列添加信息
+        public void insertIntoInfo(string tab_name, string column,string value)
+        {
+            bool flag1 = true;
+            bool flag2 = true;
+            string insertIntoInfo1String = "insert into " +tab_name+ " ("+column+") values("+value+")";
+            string insertIntoInfo2String = "insert into " + tab_name + " (" + column + ") values('" + value +"')";
+            try
+            {
+                flag1 = UpdateDB(insertIntoInfo1String);
+            }
+            catch (Exception)            {
+            }
+            try
+            {
+                flag2 = UpdateDB(insertIntoInfo2String);
+            }
+            catch (Exception){
+            }
+            if (!flag1&&!flag2)
+            {
+                MessageBox.Show("失败");
+            }
+        }
+        //给表添加列
+        public void addColumns(string tab_name, string column, string value,string number)
+        {
+            string addColumnsString = "alter table "+tab_name+" add("+column+ value+"("+number+"))";
+            try
+            {
+                bool flag = UpdateDB(addColumnsString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        public void addColumns(string tab_name, string column)
+        {
+            string addColumnsString = "alter table " + tab_name + " add(" + column +" varchar2(20))";
+            try
+            {
+                bool flag = UpdateDB(addColumnsString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        #region 修改数据类
+        //修改列
+        public void modifyColumns(string tab_name, string column, string value, string number)
+        {
+            string addColumnsString = "alter table " + tab_name + " modify " + column + value + "(" + number + "))";
+            try
+            {
+                bool flag = UpdateDB(addColumnsString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //向表添加主键
+        public void addPrimaryKey(string tab_name, string column)
+        {
+            database db = new database();
+            string addPrimaryKeyString = "alter table "+tab_name +" add constraint tab_name primary key("+column+")";
+            try
+            {
+                bool flag = UpdateDB(addPrimaryKeyString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //给列添加非空约束
+        public void addNoNull(string tab_name, string column)
+        {
+            database db = new database();
+            string addNoNullString = "alter table "+tab_name+" modify("+column+" not null)";
+            try
+            {
+                bool flag = UpdateDB(addNoNullString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //删除表中主键
+        public void dropPrimaryKey(string tab_name)
+        {
+            database db = new database();
+            string dropPrimaryKeyString = "alter table "+tab_name+" drop primary key";
+            try
+            {
+                bool flag = UpdateDB(dropPrimaryKeyString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //禁用表中主键
+        public void disablePrimaryKey(string tab_name)
+        {
+            string disablePrimaryKeyString = "alter table " + tab_name + "disable primary key";
+            try
+            {
+                bool flag = UpdateDB(disablePrimaryKeyString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //启用表中主键
+        public void enablePrimaryKey(string tab_name)
+        {
+            string enablePrimaryKeyString = "alter table "+tab_name+" primary key";
+            try
+            {
+                bool flag = UpdateDB(enablePrimaryKeyString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //删除表中的一列
+        public void dropColumn(string tab_name, string column)
+        {
+            string dropColumnString = "alter table "+tab_name+" drop column "+column + "";
+            try
+            {
+                bool flag = UpdateDB(dropColumnString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //将表中的一列设置为不可用
+        public void setUnusedColumn(string tab_name, string column)
+        {
+            string setUnusedColumnString = "alter table "+tab_name+" set unused("+column+")";
+            try
+            {
+                bool flag = UpdateDB(setUnusedColumnString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //删除不可用列
+        public void dropUnusedColumns()
+        {
+            string dropUnusedColumnsString = "alter table drop unused columns";
+            try
+            {
+                bool flag = UpdateDB(dropUnusedColumnsString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //重命名表
+        public void renameTable(string tab_name, string new_name)
+        {
+            string renameTableString = "alter "+tab_name+" rename to "+new_name + "";
+            try
+            {
+                bool flag = UpdateDB(renameTableString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //删除表
+        public void dropTable(string tab_name)
+        {
+            string dropTableString = "drop table "+tab_name + "";
+            try
+            {
+                bool flag = UpdateDB(dropTableString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //向表中添加一行记录
+        public void insertLog(string tab_name,string value)
+        {
+            string insertLogString = "insert into "+tab_name+" values("+value+")";
+            try
+            {
+                bool flag = UpdateDB(insertLogString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //按条件查找并修改某行
+        public void updataRow(string tab_name, string conditionRow, string condition)
+        {
+            string updataRowString = "update " + tab_name + " set " + conditionRow + " where " + condition + "";
+            try
+            {
+                bool flag = UpdateDB(updataRowString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        //删除一行记录
+        public void deleteRow(string tab_name, string conditionRow)
+        {
+            string deleteRowString = "delete from " + tab_name + " where " + conditionRow + "";
+            try
+            {
+                bool flag = UpdateDB(deleteRowString);
+                if (!flag)
+                {
+                    MessageBox.Show("创建表失败！");
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        #endregion
+
+        #region 查询数据类
+        DataSet ds = new DataSet();
+       
+        //选择表中全部信息并返回
+        public DataSet selectColumns(string tab_name)
+        {
+            DataSet flag=null;
+            string selectColumnsString = "select * from "+tab_name+"";
+            try
+            {
+                flag = GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+        } 
+        //选择某一列信息返回
+        public DataSet selectColumns(string tab_name, string column1)
+        {
+            DataSet flag = null;
+            string selectColumnsString = "select " + column1 + " from " + tab_name + "";
+            try
+            {
+                flag = GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //选择某两列信息返回
+        public DataSet selectColumns(string tab_name, string column1, string column2)
+        {
+            DataSet flag = null;
+            string selectColumnsString = "select " + column1 + " , " + column2 +" from "+tab_name + "";
+            try
+            {
+                flag = GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //选择某三列信息返回
+        public DataSet selectColumns(string tab_name, string column1, string column2, string column3)
+        {
+            DataSet flag = null;
+            string selectColumnsString = "select " + column1 + " , " + column2+ " , " + column3 + " from " + tab_name + "";
+            try
+            {
+                flag = GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //选择某四列信息返回
+        public DataSet selectColumns(string tab_name, string column1, string column2, string column3, string column4)
+        {
+            DataSet flag = null;
+            string selectColumnsString = "select " + column1 + " , " + column2 + " , " + column3 + " , " + column4 + " from " + tab_name + "";
+            try
+            {
+                flag =GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //选择某五列信息返回
+        public DataSet selectColumns(string tab_name, string column1, string column2, string column3, string column4, string column5)
+        {
+            DataSet flag = null;
+            string selectColumnsString = "select " + column1 + " , " + column2 + " , " + column3 + " , " + column4 + " , " + column5 + " from " + tab_name + "";
+            try
+            {
+                flag = GetDataFromDB(selectColumnsString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //按照某条件进行筛选并返回
+        public DataSet selectWhere(string tab_name, string condition)
+        {
+            DataSet flag = null;
+            string selectWhereString = "select * from " + tab_name + " where " + condition + "";
+            try
+            {
+                flag = GetDataFromDB(selectWhereString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tab_name">表名称</param>
+        /// <param name="condition">查询条件</param>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        //按照某条件进行筛选，按某列进行升序排列并返回
+        public DataSet selectWhereEsc(string tab_name, string condition, string line)
+        {
+            DataSet flag = null;
+            string selectWhereEscString = "select * from " + tab_name + " where " + condition + " order by " + line + "";
+            try
+            {
+                flag = GetDataFromDB(selectWhereEscString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //按照某条件进行筛选，按ID进行降序排列并返回
+        public DataSet selectWhereDesc(string tab_name, string condition)
+        {
+            DataSet flag = null;
+            string selectWhereDescString = "select * from "+tab_name+" where "+condition+" order by ID desc";
+            try
+            {
+                flag = GetDataFromDB(selectWhereDescString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+
+        }
+        //按照某条件进行筛选，按某列进行降序排列并返回
+        public DataSet selectWhereDesc(string tab_name, string condition,string line)
+        {
+            DataSet flag = null;
+            string selectWhereDescString = "select * from " + tab_name + " where " + condition + " order by "+line+" desc";
+            try
+            {
+                flag = GetDataFromDB(selectWhereDescString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("创建表失败！");
+            }
+            return flag;
+        }
+        #endregion
+    }
+}
+···
