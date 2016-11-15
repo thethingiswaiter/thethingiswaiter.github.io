@@ -126,6 +126,8 @@ public class Switch{
 - Outputstream
   - FileOutputStream out =new FileOutputStream(new File("c:/file.txt"));  
     - 输入进去的文件是转化为二进制进行存储的，
+- http://blog.csdn.net/waterxcfg304/article/details/24252627 Oracle导入数据的的七种方法;
+- 
 ----
 
 
