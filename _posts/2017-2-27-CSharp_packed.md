@@ -2,7 +2,7 @@
 ---
 layout: post
 title: C# 打包
-date: 2016-09-07
+date: 2017-02-27
 categories: blog
 tags: [C#]
 description: 抄别人的
@@ -69,6 +69,7 @@ description: 抄别人的
 ######第八步：
 
 创建卸载程序。右击”应用程序文件夹“，点击”添加“，选择”文件“，然后将"C:\Windows\System32" 下面的”msiexec.exe“文件给添加进来，如果找不到，你可以直接搜。当然，你也可以再给msiexec.exe创建一个快捷方式命名为”UnInstall“。
+
 ![][11]
 ![][12]
 
