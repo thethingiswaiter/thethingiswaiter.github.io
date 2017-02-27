@@ -5,7 +5,8 @@ title: C# 打包
 date: 2017-02-27
 categories: blog
 tags: [C#]
-description: 抄别人的
+description: 一句话描述。
+
 ---
 
 作者 ： 卿笃军
