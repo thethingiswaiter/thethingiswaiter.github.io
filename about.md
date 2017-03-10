@@ -7,7 +7,7 @@ header-img: "img/green.jpg"
 
 
 <center>
-    <p><img src="http://7xlfkx.com1.z0.glb.clouddn.com/white2.jpg" align="center"></p>
+    <p><img src="http://ocp77h2r6.bkt.clouddn.com/" align="center"></p>
 </center>
 
 
@@ -15,4 +15,8 @@ header-img: "img/green.jpg"
 
 <center>
 <a href="http://github.com/thethingiswaiter" target="_blank">github.thethingiswaiter</a>
+</center>
+
+<center>
+<p>http://ocp77h2r6.bkt.clouddn.com/ </p>
 </center>
