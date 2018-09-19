@@ -4,7 +4,7 @@
 
 ## program
 
-我是姚衍，博客：[thethingiswaiter.com](thethingiswaiter.com)
+我是姚衍，博客：[thethingiswaiter.github.io](thethingiswaiter.github.io)
 
 向往machine learning。
 
