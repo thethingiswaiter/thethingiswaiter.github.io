@@ -7,9 +7,7 @@ tags: [java]
 description: 复习计算机网络时记的要点。
 
 ---
-
----
-
+[TOC]
 ## http的主要方法
 - get 获取URI指定的信息,如果uri指定的是文件,则返回文件的内容,如果uri指定的是cgi 程序,则返回程序的输出数据
 - head 和get 基本相同,不过他只返回http的消息头message head,并不返回数据内容,用于获取文件最后更新时间等属性信息

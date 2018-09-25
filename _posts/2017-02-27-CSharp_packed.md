@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: C#打包
@@ -8,7 +7,6 @@ tags: [C#]
 description: 一句话描述。
 
 ---
-
 
 作者 ： 卿笃军
 原文地址：http://blog.csdn.net/qingdujun/article/details/37563661
@@ -20,18 +18,18 @@ description: 一句话描述。
 
 下面开始介绍：如何给windows应用程序打包?
 
-######第一步：
+###### 第一步：
 
 打开VS2010，打开你要打包的项目，然后右击"解决方案"，”添加“，"新建项目",弹出如下图所示界面：
 点击”安装和部署“左边的三角形，选择下面的”Visual studio Installer“，再选择”安装项目“，同时将下面的命名改为”Setup“点击确定。
 ![][1]
 
-######第二步：
+###### 第二步：
 
 点击解决方案里面生成的”Setup“，将属性中的ProtectName改为”学生寄宿系统 V1.0 “（你的项目名字）
 ![][2]
 
-######第三步：
+###### 第三步：
 
 右击解决方案里面的”Setup“，然后再选择”属性“。弹出属性页界面如下第二张图：
 再点击里面的系统必备。
@@ -44,19 +42,19 @@ description: 一句话描述。
 ![][3]
 ![][4]
 
-######第四步：
+###### 第四步：
 
 右击”应用程序文件夹“，点击”添加“，再点击文件夹，命名为”DB“（可随意）用于存放你的数据库文件。
 然后再右击刚才添加好的"DB"文件夹，”添加“，”文件“，将你的数据库添加进来。
 ![][5]
 ![][6]
 
-######第五步：
+###### 第五步：
 
 右击”应用程序文件夹“，点击”添加“，点击”文件“。将你的Release目录下面的文件全部添加进来。
 ![][7]
 
-第六步：
+###### 第六步：
 
 右击”应用程序文件夹“，点击”添加“，选择”项目输出...“，注意：在项目栏要选择你自己的项目（我的项目名：StudentJisu），然后选择”主输出“，点击确定。下面。
 ![][8]
@@ -224,33 +222,33 @@ namespace InstallDB
 
 
 
-  [1]: http://ocp77h2r6.bkt.clouddn.com/packed1.png
-  [2]: http://ocp77h2r6.bkt.clouddn.com/packed2.png
-  [3]: http://ocp77h2r6.bkt.clouddn.com/packed3.png
-  [4]: http://ocp77h2r6.bkt.clouddn.com/packed4.png
-  [5]: http://ocp77h2r6.bkt.clouddn.com/packed5.png
-  [6]: http://ocp77h2r6.bkt.clouddn.com/packed6.png
-  [7]: http://ocp77h2r6.bkt.clouddn.com/packed7.png
-  [8]: http://ocp77h2r6.bkt.clouddn.com/packed8.png
-  [9]: http://ocp77h2r6.bkt.clouddn.com/packed9.png
-  [10]: http://ocp77h2r6.bkt.clouddn.com/packed10.png
-  [11]: http://ocp77h2r6.bkt.clouddn.com/packed11.png
-  [12]: http://ocp77h2r6.bkt.clouddn.com/packed12.png
-  [13]: http://ocp77h2r6.bkt.clouddn.com/packed13.png
-  [14]: http://ocp77h2r6.bkt.clouddn.com/packed14.png
-  [15]: http://ocp77h2r6.bkt.clouddn.com/packed15.png
-  [16]: http://ocp77h2r6.bkt.clouddn.com/packed16.png
-  [17]: http://ocp77h2r6.bkt.clouddn.com/packed17.png
-  [18]: http://ocp77h2r6.bkt.clouddn.com/packed18.png
-  [19]: http://ocp77h2r6.bkt.clouddn.com/packed19.png
-  [20]: http://ocp77h2r6.bkt.clouddn.com/packed20.png
-  [21]: http://ocp77h2r6.bkt.clouddn.com/packed21.png
-  [22]: http://ocp77h2r6.bkt.clouddn.com/packed22.png
-  [23]: http://ocp77h2r6.bkt.clouddn.com/packed23.png
-  [24]: http://ocp77h2r6.bkt.clouddn.com/packed24.png
-  [25]: http://ocp77h2r6.bkt.clouddn.com/packed25.png
-  [26]: http://ocp77h2r6.bkt.clouddn.com/packed26.png
-  [27]: http://ocp77h2r6.bkt.clouddn.com/packed27.png
-  [28]: http://ocp77h2r6.bkt.clouddn.com/packed28.png
-  [29]: http://ocp77h2r6.bkt.clouddn.com/packed29.png
-  [30]: http://ocp77h2r6.bkt.clouddn.com/packed30.png
+[1]: http://ocp77h2r6.bkt.clouddn.com/packed1.png
+[2]: http://ocp77h2r6.bkt.clouddn.com/packed2.png
+[3]: http://ocp77h2r6.bkt.clouddn.com/packed3.png
+[4]: http://ocp77h2r6.bkt.clouddn.com/packed4.png
+[5]: http://ocp77h2r6.bkt.clouddn.com/packed5.png
+[6]: http://ocp77h2r6.bkt.clouddn.com/packed6.png
+[7]: http://ocp77h2r6.bkt.clouddn.com/packed7.png
+[8]: http://ocp77h2r6.bkt.clouddn.com/packed8.png
+[9]: http://ocp77h2r6.bkt.clouddn.com/packed9.png
+[10]: http://ocp77h2r6.bkt.clouddn.com/packed10.png
+[11]: http://ocp77h2r6.bkt.clouddn.com/packed11.png
+[12]: http://ocp77h2r6.bkt.clouddn.com/packed12.png
+[13]: http://ocp77h2r6.bkt.clouddn.com/packed13.png
+[14]: http://ocp77h2r6.bkt.clouddn.com/packed14.png
+[15]: http://ocp77h2r6.bkt.clouddn.com/packed15.png
+[16]: http://ocp77h2r6.bkt.clouddn.com/packed16.png
+[17]: http://ocp77h2r6.bkt.clouddn.com/packed17.png
+[18]: http://ocp77h2r6.bkt.clouddn.com/packed18.png
+[19]: http://ocp77h2r6.bkt.clouddn.com/packed19.png
+[20]: http://ocp77h2r6.bkt.clouddn.com/packed20.png
+[21]: http://ocp77h2r6.bkt.clouddn.com/packed21.png
+[22]: http://ocp77h2r6.bkt.clouddn.com/packed22.png
+[23]: http://ocp77h2r6.bkt.clouddn.com/packed23.png
+[24]: http://ocp77h2r6.bkt.clouddn.com/packed24.png
+[25]: http://ocp77h2r6.bkt.clouddn.com/packed25.png
+[26]: http://ocp77h2r6.bkt.clouddn.com/packed26.png
+[27]: http://ocp77h2r6.bkt.clouddn.com/packed27.png
+[28]: http://ocp77h2r6.bkt.clouddn.com/packed28.png
+[29]: http://ocp77h2r6.bkt.clouddn.com/packed29.png
+[30]: http://ocp77h2r6.bkt.clouddn.com/packed30.png
